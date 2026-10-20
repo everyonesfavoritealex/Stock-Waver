@@ -5,6 +5,7 @@ Description:
 """
 import pygame
 from sys import exit
+from spritesinit import Sprite
 
 class Newpaper_Object(pygame.sprite.Sprite):
     def __init__(self):
@@ -29,10 +30,11 @@ def test_background():
     test_background = pygame.image.load( "assets/Test_Background.png" )
     test_background = pygame.transform.scale( test_background, ( game_window_width, game_window_height ) )
     game_window.blit( test_background, ( 0, 0 ) )
-from spritesinit import Sprite
+
+# Alex's Test Stuff
 def add_background_image():
     background_image = pygame.image.load("assets/Background.PNG")
-    background_image = pygame.transform.scale(background_image, ( game_window_height, game_window_width))
+    background_image = pygame.transform.scale(background_image, ( game_window_width, game_window_height))
     gameplay_sprites.update()
     gameplay_sprites.draw(game_window)
     
@@ -47,13 +49,11 @@ pygame.init()
 game_window_height = 894
 game_window_width = 1280
 game_window = pygame.display.set_mode( ( game_window_width, game_window_height ), pygame.RESIZABLE )
-game_window_width = 894
-game_window_height = 1280
+
+# Alex's Test Stuff
 phone=Sprite(100,700,"assets/Phone.PNG")
 gameplay_sprites=pygame.sprite.Group()
 gameplay_sprites.add(phone)
-
-game_window = pygame.display.set_mode((game_window_height, game_window_width), pygame.RESIZABLE)
 
 pygame.display.set_caption( "Stock-Waver" )
 
