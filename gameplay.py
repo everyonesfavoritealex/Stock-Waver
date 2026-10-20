@@ -6,23 +6,47 @@ Description:
 import pygame
 from sys import exit
 
+class Newpaper_Object(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load( "assets/Newspaper.png" )
+        self.image = pygame.transform.scale( self.image, ( 300, 189 ) )
+        self.rect = self.image.get_rect( topleft = ( 820, 660 ) )
+
+class Phone_Object(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load( "assets/Phone.PNG" )
+        self.image = pygame.transform.scale( self.image, ( 102, 325 ) )
+        self.rect = self.image.get_rect( topleft = ( -5, 185 ) )
+
 def add_background_image():
-    background_image = pygame.image.load("assets/Background.PNG")
-    background_image = pygame.transform.scale(background_image, ( game_window_height, game_window_width))
-    game_window.blit(background_image, (0, 0))
-    pygame.display.update()
+    background_image = pygame.image.load( "assets/Background.PNG" )
+    background_image = pygame.transform.scale( background_image, ( game_window_width, game_window_height ) )
+    game_window.blit( background_image, ( 0, 0 ) )
+
+def test_background():
+    test_background = pygame.image.load( "assets/Test_Background.png" )
+    test_background = pygame.transform.scale( test_background, ( game_window_width, game_window_height ) )
+    game_window.blit( test_background, ( 0, 0 ) )
 
 
 # Screen setup
 pygame.init()
 
-game_window_width = 894
-game_window_height = 1280
-game_window = pygame.display.set_mode((game_window_height, game_window_width), pygame.RESIZABLE)
+game_window_height = 894
+game_window_width = 1280
+game_window = pygame.display.set_mode( ( game_window_width, game_window_height ), pygame.RESIZABLE )
 
-pygame.display.set_caption("Stock-Waver")
+pygame.display.set_caption( "Stock-Waver" )
 
 clock = pygame.time.Clock()
+
+newpaper = pygame.sprite.GroupSingle()
+newpaper.add(Newpaper_Object())
+
+phone = pygame.sprite.GroupSingle()
+phone.add(Phone_Object())
 
 # Starts game
 game_running = True
@@ -38,5 +62,11 @@ while game_running == True:
             if event.key == pygame.K_ESCAPE:
                 game_running = False
                 exit()
-    clock.tick(60)
+
+    
     add_background_image()
+    # test_background()
+    newpaper.draw( game_window )
+    phone.draw( game_window )
+    pygame.display.update()
+    clock.tick( 60 )
