@@ -20,14 +20,26 @@ pygame.display.set_caption( "Stock Waver" )
 clock = pygame.time.Clock()
 
 gameplay_sprites = pygame.sprite.Group()
+clock_sprite = pygame.sprite.Group()
+pc_sprite = pygame.sprite.Group()
+
+clock_sprite.add( Sprite_Object ( "assets/Clock_Base_Red.png", 190, 192, 1075, 100 ) )
+clock_sprite.add( Sprite_Object ( "assets/Clock_Base_White.png", 190, 192, 1075, 100 ) )
+clock_sprite.add( Sprite_Object ( "assets/Clock_Hands.png", 190, 192, 1075, 98 ) )
+clock_sprite.add( Sprite_Object ( "assets/Clock_Hashs.png", 190, 192, 1075, 100 ) )
+
+pc_sprite.add( Sprite_Object ( "assets/PC_Body.png", 955, 799, 155, 50 ) )
 
 # Testing Sprites 
-# gameplay_sprites.add( Sprite_Object ( "assets/Newspaper.png", 300, 189, 820, 660 ) )
-# gameplay_sprites.add( Sprite_Object ( "assets/Phone.PNG", 102 , 325, -5, 185 ) )
-# gameplay_sprites.add( Sprite_Object ( "assets/Magic_8_Ball.PNG", 90, 94, 370, 660) ) 
-# gameplay_sprites.add( Sprite_Object ( "assets/TV_Blank_Screen.png", 370, 406, 8, 440 ) )
-# gameplay_sprites.add( Sprite_Object ( "assets/Cup_Empty.png", 160, 322, 1110, 495 ) )]
-
+# gameplay_sprites.add( Sprite_Object ( "assets/Newspaper.png", 300, 189, 820, 660 ) ) # Newspapers
+# gameplay_sprites.add( Sprite_Object ( "assets/Phone.PNG", 100 , 319, -5, 185 ) ) # Phone
+# gameplay_sprites.add( Sprite_Object ( "assets/Magic_8_Ball.PNG", 90, 94, 370, 660) ) # Magic 8 Ball
+# gameplay_sprites.add( Sprite_Object ( "assets/TV_Blank_Screen.png", 370, 406, 8, 440 ) ) # TV Blank
+# gameplay_sprites.add( Sprite_Object ( "assets/TV_Breaking_News.png", 370, 406, 8, 440 ) ) # TV Breaking News
+# gameplay_sprites.add( Sprite_Object ( "assets/TV_Blank_Cover.png", 370, 406, 8, 440 ) ) # TV Cover
+# gameplay_sprites.add( Sprite_Object ( "assets/Cup_With_Coffee.png", 160, 322, 1110, 495 ) ) # Coffee
+# gameplay_sprites.add( Sprite_Object ( "assets/Cup_Empty.png", 160, 322, 1110, 495 ) ) # Empty Cup
+# gameplay_sprites.add( Sprite_Object ( "assets/Coffee_Top.png", 160, 322, 1110, 495 ) ) # Coffee Top
 
 # Starts game
 delta = 0
@@ -71,7 +83,7 @@ while game_running == True:
 
     # Breaking News Upgrade
     if active_upgrades[5]:
-        gameplay_sprites.add( Sprite_Object ( "assets/TV_Blank_Screen.png", 370, 406, 8, 440 ) )
+        gameplay_sprites.add( Sprite_Object ( "assets/TV_Breaking_News.png", 370, 406, 8, 440 ) )
         pass
 
     # Magic 8 Ball Upgrade
@@ -81,7 +93,7 @@ while game_running == True:
 
     # Insider Trading Upgrade
     if active_upgrades[7]:
-        gameplay_sprites.add( Sprite_Object ( "assets/Phone.PNG", 102, 325, -5, 185 ) )
+        gameplay_sprites.add( Sprite_Object ( "assets/Phone.PNG", 100, 319, -5, 185 ) )
 
     
     while day_active:
@@ -99,6 +111,8 @@ while game_running == True:
 
         add_background_image( game_window, game_window_width, game_window_height )
         # test_background( game_window, game_window_width, game_window_height )
-
+        pc_sprite.draw( game_window )
+        clock_sprite.draw( game_window )
         gameplay_sprites.draw( game_window )
+
         pygame.display.update()
