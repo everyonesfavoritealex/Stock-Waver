@@ -5,10 +5,6 @@ Description:
 """
 import pygame
 from sys import exit
-<<<<<<< HEAD
-=======
-import utils
->>>>>>> 46dd873d20614bf06fa6d48c5550206ddbe22307
 from spritesinit import Sprite_Object
 
 def add_background_image():
@@ -33,13 +29,8 @@ pygame.display.set_caption( "Stock Waver" )
 clock = pygame.time.Clock()
 
 gameplay_sprites = pygame.sprite.Group()
-<<<<<<< HEAD
 gameplay_sprites.add( Sprite_Object ( "assets/Newspaper.png", 300, 189, 820, 660 ) )
 gameplay_sprites.add( Sprite_Object ( "assets/Phone.PNG", 102 , 325, -5, 185 ) )
-=======
-
-
->>>>>>> 46dd873d20614bf06fa6d48c5550206ddbe22307
 
 
 # Starts game
