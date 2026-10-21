@@ -5,11 +5,7 @@ Description:
 """
 import pygame
 from sys import exit
-
 from spritesinit import Sprite_Object
-
-
-
 
 def add_background_image():
     background_image = pygame.image.load( "assets/Background.PNG" )
@@ -21,8 +17,6 @@ def test_background():
     test_background = pygame.transform.scale( test_background, ( game_window_width, game_window_height ) )
     game_window.blit( test_background, ( 0, 0 ) )
 
-
-
 # Screen setup
 pygame.init()
 
@@ -30,14 +24,13 @@ game_window_height = 894
 game_window_width = 1280
 game_window = pygame.display.set_mode( ( game_window_width, game_window_height ), pygame.RESIZABLE )
 
-
 pygame.display.set_caption( "Stock Waver" )
 
 clock = pygame.time.Clock()
 
 gameplay_sprites = pygame.sprite.Group()
-gameplay_sprites.add(Sprite_Object("assets/Newspaper.png", 300,189,820,660))
-gameplay_sprites.add(Sprite_Object("assets/Phone.PNG",102,325,-5,185))
+gameplay_sprites.add( Sprite_Object ( "assets/Newspaper.png", 300, 189, 820, 660 ) )
+gameplay_sprites.add( Sprite_Object ( "assets/Phone.PNG", 102 , 325, -5, 185 ) )
 
 
 # Starts game
