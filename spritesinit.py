@@ -8,21 +8,8 @@ class Sprite_Object( pygame.sprite.Sprite ):
         self.rect = self.image.get_rect( topleft = ( topleft_x, topleft_y ) )
 
     
-# TODO Change into one fuction
 # Background
-def add_background_image(window, window_width, window_height):
-    background_image = pygame.image.load( "assets/Background.PNG" )
-    background_image = pygame.transform.scale( background_image, ( window_width, window_height ) )
-    window.blit( background_image, ( 0, 0 ) )
-
-# Title Background 
-def title_background_image(window, window_width, window_height):
-    background_image = pygame.image.load( "assets/Title_Background.png" )
-    background_image = pygame.transform.scale( background_image, ( window_width, window_height ) )
-    window.blit( background_image, ( 0, 0 ) )
-
-# Testing Background
-def test_background(window, window_width, window_height):
-    test_background = pygame.image.load( "assets/Test_Background.png" )
-    test_background = pygame.transform.scale( test_background, ( window_width, window_height ) )
-    window.blit( test_background, ( 0, 0 ) )
+def add_background(window, window_width, window_height, file_name):
+    add_background = pygame.image.load( f"assets/{file_name}" )
+    add_background = pygame.transform.scale( add_background, ( window_width, window_height ) )
+    window.blit( add_background, ( 0, 0 ) )

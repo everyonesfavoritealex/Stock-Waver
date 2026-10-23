@@ -1,5 +1,5 @@
 import pygame
-from spritesinit import Sprite_Object, title_background_image
+from spritesinit import Sprite_Object, add_background
 
 # Screen setup
 pygame.init()
@@ -36,7 +36,7 @@ while game_running == True:
     
         delta = clock.tick(60) / 1000 # limits FPS to 60
 
-        title_background_image( game_window, game_window_width, game_window_height )
+        add_background( game_window, game_window_width, game_window_height, "Title_Background.png" )
         play_button_sprite.draw( game_window )
 
         pygame.display.update()

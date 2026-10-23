@@ -5,7 +5,7 @@ Description:
 """
 import pygame
 from sys import exit
-from spritesinit import Sprite_Object, add_background_image, test_background
+from spritesinit import Sprite_Object, add_background
 from utils import get_active_upgrades as gau, stocks
 
 # Screen setup
@@ -109,8 +109,8 @@ while game_running == True:
 
         delta = clock.tick(60) / 1000 # limits FPS to 60
 
-        add_background_image( game_window, game_window_width, game_window_height )
-        # test_background( game_window, game_window_width, game_window_height )
+        add_background( game_window, game_window_width, game_window_height, "Background.PNG" )
+        # add_background( game_window, game_window_width, game_window_height, "Test_Background.png" )
         pc_sprite.draw( game_window )
         clock_sprite.draw( game_window )
         gameplay_sprites.draw( game_window )
