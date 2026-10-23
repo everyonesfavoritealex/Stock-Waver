@@ -8,7 +8,7 @@ class Sprite_Object( pygame.sprite.Sprite ):
         self.rect = self.image.get_rect( topleft = ( topleft_x, topleft_y ) )
 
     
-
+# TODO Change into one fuction
 # Background
 def add_background_image(window, window_width, window_height):
     background_image = pygame.image.load( "assets/Background.PNG" )
