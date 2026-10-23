@@ -15,6 +15,12 @@ def add_background_image(window, window_width, window_height):
     background_image = pygame.transform.scale( background_image, ( window_width, window_height ) )
     window.blit( background_image, ( 0, 0 ) )
 
+# Title Background 
+def title_background_image(window, window_width, window_height):
+    background_image = pygame.image.load( "assets/Title_Background.png" )
+    background_image = pygame.transform.scale( background_image, ( window_width, window_height ) )
+    window.blit( background_image, ( 0, 0 ) )
+
 # Testing Background
 def test_background(window, window_width, window_height):
     test_background = pygame.image.load( "assets/Test_Background.png" )
